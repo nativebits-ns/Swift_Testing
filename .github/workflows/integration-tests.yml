@@ -1,0 +1,22 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Swift Testing
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version (Optional)
+        run: sudo xcode-select -switch /Applications/Xcode.app
+
+      - name: Run Swift Tests
+        run: swift test
