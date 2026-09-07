@@ -25,7 +25,7 @@ struct shoppingListApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(service: ShoppingListService(modelContext: sharedModelContainer.mainContext))
         }
         .modelContainer(sharedModelContainer)
     }
